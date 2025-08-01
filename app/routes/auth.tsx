@@ -113,7 +113,7 @@ const auth = () => {
                   >
                     <div className="flex items-center justify-center space-x-3">
                       <svg
-                        className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300"
+                        className="w-5 h-5 group-hover:scale-110 transition-transform duration-300"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -122,7 +122,7 @@ const auth = () => {
                           strokeLinecap="round"
                           strokeLinejoin="round"
                           strokeWidth={2}
-                          d="M11 16l-4-4m0 0l4-4m-4 4h14m-5-4v4.75a2.25 2.25 0 01-2.25 2.25h-9.5a2.25 2.25 0 01-2.25-2.25V6.75A2.25 2.25 0 016.75 4.5h9.5A2.25 2.25 0 0119 6.75v4.75"
+                          d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
                         />
                       </svg>
                       <span>Sign In</span>
