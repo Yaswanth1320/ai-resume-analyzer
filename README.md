@@ -21,72 +21,147 @@
 4. 🚀 [Quick Start](#quick-start)
 5. 📁 [Project Structure](#project-structure)
 6. 🔧 [Development](#development)
+7. 📊 [AI Analysis](#ai-analysis)
+8. 🤝 [Contributing](#contributing)
 
 ---
 
 ## 🧠 Introduction
 
-**AI Resume Analyzer** is an intelligent resume analysis tool that helps job seekers optimize their resumes for Applicant Tracking Systems (ATS) and improve their chances of getting hired. The application uses AI to provide personalized feedback on resume content, structure, tone, and ATS compatibility based on specific job descriptions.
+**AI Resume Analyzer** is a cutting-edge resume optimization platform that leverages artificial intelligence to help job seekers create ATS-friendly resumes and maximize their chances of landing interviews. Built with modern web technologies, this application provides comprehensive resume analysis, personalized feedback, and actionable insights to improve your job application success rate.
 
-Key capabilities include:
-- **ATS Optimization**: Analyzes resume compatibility with Applicant Tracking Systems
-- **Personalized Feedback**: Provides targeted suggestions based on job descriptions
-- **Multi-category Scoring**: Evaluates content, structure, tone, and skills
-- **Visual Analysis**: Converts PDF resumes to images for comprehensive review
-- **Progress Tracking**: Monitors application status and improvement over time
+### 🎯 **What Makes This Project Special**
+
+- **AI-Powered Analysis**: Advanced machine learning algorithms analyze your resume across multiple dimensions
+- **Job-Specific Feedback**: Tailored recommendations based on actual job descriptions and requirements
+- **ATS Optimization**: Ensures your resume passes through Applicant Tracking Systems
+- **Visual Resume Review**: Convert PDF resumes to images for comprehensive visual analysis
+- **Real-time Processing**: Live status updates and instant feedback
+- **Cloud-Based Storage**: Secure file management with Puter cloud platform
+
+### 🚀 **Key Capabilities**
+
+- **Smart Resume Analysis**: AI-powered analysis of resume content, structure, and ATS compatibility
+- **Personalized Feedback**: Provides targeted suggestions based on specific job descriptions
+- **Multi-Dimensional Scoring**: Separate scores for ATS, tone, content, structure, and skills
+- **PDF Processing**: Automatic conversion of PDF resumes to images for analysis
+- **Secure File Storage**: Cloud-based file management with Puter
+- **Progress Tracking**: Monitor application status and resume improvements over time
+- **Modern UI/UX**: Clean, responsive interface with intuitive navigation
+- **Real-time Processing**: Live status updates during analysis
 
 ---
 
 ## ⚙️ Tech Stack
 
+### **Frontend**
 * **Framework:** React 19 with React Router v7
-* **Language:** TypeScript
-* **Styling:** Tailwind CSS
-* **Backend:** Puter Cloud Platform
-* **File Processing:** PDF.js for PDF conversion
-* **State Management:** Zustand
-* **File Upload:** React Dropzone
-* **Build Tool:** Vite
+* **Language:** TypeScript for type safety
+* **Styling:** Tailwind CSS for modern, responsive design
+* **State Management:** Zustand for lightweight state management
+* **File Upload:** React Dropzone for seamless file handling
+
+### **Backend & Infrastructure**
+* **Cloud Platform:** Puter Cloud Platform
+* **File Processing:** PDF.js for robust PDF conversion
+* **Build Tool:** Vite for fast development and building
+* **Authentication:** Puter's built-in authentication system
+
+### **Development Tools**
+* **Package Manager:** npm
+* **Type Checking:** TypeScript
+* **Code Quality:** ESLint and Prettier (recommended)
+* **Version Control:** Git
 
 ---
 
-## 💪 Key Features
+## 💪 Features
 
-👉 **Smart Resume Analysis:** AI-powered analysis of resume content, structure, and ATS compatibility  
-👉 **Job-Specific Feedback:** Personalized recommendations based on job descriptions  
-👉 **Multi-Dimensional Scoring:** Separate scores for ATS, tone, content, structure, and skills  
-👉 **PDF Processing:** Automatic conversion of PDF resumes to images for analysis  
-👉 **Secure File Storage:** Cloud-based file management with Puter  
-👉 **Progress Tracking:** Monitor application status and resume improvements  
-👉 **Modern UI:** Clean, responsive interface with intuitive navigation  
-👉 **Real-time Processing:** Live status updates during analysis  
+### 🎯 **Core Features**
+
+#### **Smart Resume Analysis**
+- AI-powered analysis of resume content, structure, and ATS compatibility
+- Real-time processing with live status updates
+- Comprehensive feedback across multiple dimensions
+
+#### **Job-Specific Feedback**
+- Personalized recommendations based on job descriptions
+- Industry-specific optimization tips
+- Role-targeted content suggestions
+
+#### **Multi-Dimensional Scoring**
+- **ATS Compatibility**: Evaluates resume parsing by Applicant Tracking Systems
+- **Content Quality**: Assesses relevance and impact of resume content
+- **Structure**: Reviews organization and formatting
+- **Tone & Style**: Analyzes professional tone and writing style
+- **Skills Assessment**: Evaluates skill alignment with job requirements
+
+#### **Advanced PDF Processing**
+- Automatic PDF to image conversion for visual analysis
+- High-quality rendering with configurable settings
+- Support for multi-page PDF documents
+- Memory-efficient processing
+
+### 🎨 **User Experience**
+
+#### **Modern Interface**
+- Clean, responsive design with Tailwind CSS
+- Intuitive navigation and user flow
+- Mobile-friendly responsive layout
+- Smooth animations and transitions
+
+#### **Visual Feedback**
+- Interactive score circles and gauges
+- Color-coded feedback indicators
+- Progress tracking visualization
+- Real-time status updates
+
+#### **File Management**
+- Drag-and-drop file upload
+- Secure cloud storage
+- Resume image preview
+- PDF viewer integration
+
+### 🔒 **Security & Performance**
+
+#### **Data Security**
+- Secure file storage with Puter cloud platform
+- Encrypted data transmission
+- User authentication and authorization
+- Privacy-focused design
+
+#### **Performance Optimization**
+- Lazy loading of components
+- Efficient PDF processing
+- Optimized image rendering
+- Fast build times with Vite
 
 ---
 
 ## 🚀 Quick Start
 
-Get started locally with these steps:
+Get started with AI Resume Analyzer in minutes:
 
-### 🔧 Prerequisites
+### 🔧 **Prerequisites**
 
 * [Node.js](https://nodejs.org/) (v18 or higher)
 * [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
 * [Git](https://git-scm.com/)
 
-### 📁 Clone the Repo
+### 📁 **Clone the Repository**
 
 ```bash
 git clone https://github.com/Yaswanth1320/ai-resume-analyzer.git
 cd ai-resume-analyzer
 ```
 
-### 📦 Install Dependencies
+### 📦 **Install Dependencies**
 
 ```bash
 npm install
 ```
 
-### 🚀 Run Development Server
+### 🚀 **Run Development Server**
 
 ```bash
 npm run dev
@@ -94,10 +169,16 @@ npm run dev
 
 The application will be available at `http://localhost:3000`
 
-### 🏗️ Build for Production
+### 🏗️ **Build for Production**
 
 ```bash
 npm run build
+```
+
+### 🚀 **Start Production Server**
+
+```bash
+npm run start
 ```
 
 ---
@@ -108,68 +189,149 @@ npm run build
 ai-resume-analyzer/
 ├── app/
 │   ├── components/          # React components
-│   │   ├── FileUploader.tsx
-│   │   ├── Navbar.tsx
-│   │   ├── ResumeCard.tsx
-│   │   └── ScoreCircle.tsx
+│   │   ├── Accordion.tsx   # Collapsible content sections
+│   │   ├── ATS.tsx         # ATS analysis component
+│   │   ├── Details.tsx     # Detailed feedback component
+│   │   ├── FileUploader.tsx # File upload with drag-drop
+│   │   ├── Navbar.tsx      # Navigation component
+│   │   ├── ResumeCard.tsx  # Resume preview card
+│   │   ├── ScoreBadge.tsx  # Score display component
+│   │   ├── ScoreCircle.tsx # Circular score indicator
+│   │   ├── ScoreGauge.tsx  # Gauge-style score display
+│   │   └── Summary.tsx     # Analysis summary component
 │   ├── lib/                # Utility functions
-│   │   ├── puter.ts        # Puter integration
+│   │   ├── pdf2image.ts    # PDF to image conversion
+│   │   ├── puter.ts        # Puter cloud integration
 │   │   └── utils.ts        # Helper functions
 │   ├── routes/             # Application routes
-│   │   ├── auth.tsx        # Authentication
-│   │   ├── home.tsx        # Dashboard
-│   │   └── upload.tsx      # Resume upload
+│   │   ├── auth.tsx        # Authentication page
+│   │   ├── home.tsx        # Dashboard/home page
+│   │   ├── resume.tsx      # Resume analysis view
+│   │   ├── upload.tsx      # Resume upload page
+│   │   └── wipe.tsx        # Data cleanup utility
+│   ├── app.css             # Global styles
 │   └── root.tsx            # Root component
 ├── constants/              # Application constants
+│   └── index.ts           # AI prompts and configurations
 ├── public/                 # Static assets
 │   ├── icons/             # SVG icons
-│   └── images/            # Image assets
+│   ├── images/            # Image assets
+│   └── pdf.worker.min.mjs # PDF.js worker file
 ├── types/                  # TypeScript type definitions
-└── package.json           # Dependencies and scripts
+│   ├── index.d.ts         # Global type definitions
+│   └── puter.d.ts         # Puter-specific types
+├── package.json           # Dependencies and scripts
+├── tsconfig.json          # TypeScript configuration
+├── vite.config.ts         # Vite build configuration
+└── README.md              # Project documentation
 ```
 
 ---
 
 ## 🔧 Development
 
-### Available Scripts
+### **Available Scripts**
 
-- `npm run dev` - Start development server
+- `npm run dev` - Start development server with hot reload
 - `npm run build` - Build for production
 - `npm run start` - Start production server
 - `npm run typecheck` - Run TypeScript type checking
 
-### Key Components
+### **Key Components**
 
-- **FileUploader**: Handles PDF file upload with drag-and-drop
-- **ResumeCard**: Displays resume analysis results
+- **FileUploader**: Handles PDF file upload with drag-and-drop functionality
+- **ResumeCard**: Displays resume analysis results in card format
 - **ScoreCircle**: Visual representation of analysis scores
-- **Navbar**: Application navigation
+- **Navbar**: Application navigation and user interface
+- **ATS**: ATS-specific analysis and recommendations
+- **Summary**: Overall analysis summary and insights
 
-### AI Analysis Features
+### **Development Guidelines**
 
-The application analyzes resumes across five key dimensions:
+1. **TypeScript**: All code should be properly typed
+2. **Component Structure**: Use functional components with hooks
+3. **Styling**: Use Tailwind CSS classes for styling
+4. **File Organization**: Keep components modular and well-organized
+5. **Error Handling**: Implement proper error boundaries and user feedback
 
-1. **ATS Compatibility**: Evaluates how well the resume passes through Applicant Tracking Systems
-2. **Content Quality**: Assesses the relevance and impact of resume content
-3. **Structure**: Reviews the organization and formatting of the resume
-4. **Tone & Style**: Analyzes the professional tone and writing style
-5. **Skills Assessment**: Evaluates the alignment of skills with job requirements
+---
 
-Each dimension provides:
-- Numerical score (0-100)
-- Specific improvement tips
-- Detailed explanations for recommendations
+## 📊 AI Analysis
+
+The application provides comprehensive resume analysis across five key dimensions:
+
+### **1. ATS Compatibility (0-100)**
+Evaluates how well your resume passes through Applicant Tracking Systems:
+- Keyword optimization
+- Format compatibility
+- Parsing accuracy
+- Industry-specific requirements
+
+### **2. Content Quality (0-100)**
+Assesses the relevance and impact of your resume content:
+- Achievement descriptions
+- Quantified results
+- Professional language
+- Content relevance to job requirements
+
+### **3. Structure (0-100)**
+Reviews the organization and formatting of your resume:
+- Layout consistency
+- Section organization
+- Visual hierarchy
+- Professional formatting
+
+### **4. Tone & Style (0-100)**
+Analyzes the professional tone and writing style:
+- Professional language
+- Confidence level
+- Clarity and conciseness
+- Industry-appropriate tone
+
+### **5. Skills Assessment (0-100)**
+Evaluates the alignment of skills with job requirements:
+- Skill relevance
+- Technical proficiency
+- Soft skills integration
+- Industry-specific skills
+
+### **Analysis Features**
+- **Numerical Scoring**: Each dimension receives a score from 0-100
+- **Specific Tips**: Actionable improvement suggestions
+- **Detailed Explanations**: In-depth reasoning for recommendations
+- **Job-Specific Feedback**: Tailored advice based on job descriptions
 
 ---
 
 ## 🤝 Contributing
 
+We welcome contributions from the community! Here's how you can help:
+
+### **Getting Started**
+
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+3. Make your changes
+4. Test thoroughly
+5. Commit your changes (`git commit -m 'Add some amazing feature'`)
+6. Push to the branch (`git push origin feature/amazing-feature`)
+7. Open a Pull Request
+
+### **Development Guidelines**
+
+- Follow the existing code style and conventions
+- Add proper TypeScript types
+- Include tests for new features
+- Update documentation as needed
+- Ensure responsive design for mobile devices
+
+### **Feature Requests**
+
+We're always looking for new ideas! Feel free to:
+- Open an issue for bug reports
+- Suggest new features
+- Improve documentation
+- Enhance the user experience
 
 ---
 
@@ -181,10 +343,49 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-- [Puter](https://puter.com/) for cloud infrastructure
-- [React Router](https://reactrouter.com/) for routing
-- [Tailwind CSS](https://tailwindcss.com/) for styling
-- [PDF.js](https://mozilla.github.io/pdf.js/) for PDF processing
+- [Puter](https://puter.com/) for cloud infrastructure and file management
+- [React Router](https://reactrouter.com/) for seamless client-side routing
+- [Tailwind CSS](https://tailwindcss.com/) for modern, utility-first styling
+- [PDF.js](https://mozilla.github.io/pdf.js/) for robust PDF processing
+- [React Dropzone](https://react-dropzone.js.org/) for file upload functionality
+- [Zustand](https://github.com/pmndrs/zustand) for lightweight state management
+
+---
+
+## 📈 **Future Roadmap**
+
+### **Planned Features**
+- **Resume Comparison**: Compare multiple versions side-by-side
+- **Job Application Tracker**: Track application status and follow-ups
+- **Cover Letter Generator**: AI-powered cover letter creation
+- **Skills Gap Analysis**: Identify missing skills and learning paths
+- **Interview Preparation**: Mock interviews and question banks
+- **Salary Negotiation Assistant**: Market rate analysis and negotiation tips
+- **Mobile App**: Native mobile experience
+- **Advanced Analytics**: Detailed career insights and trends
+
+### **Technical Improvements**
+- **Performance Optimization**: Faster loading and processing
+- **Enhanced AI**: More sophisticated analysis algorithms
+- **Better UX**: Improved user interface and experience
+- **Integration APIs**: Connect with job boards and LinkedIn
+- **Data Export**: Export resume data and analytics
+
+---
+
+## 📞 **Support & Contact**
+
+- **Issues**: [GitHub Issues](https://github.com/Yaswanth1320/ai-resume-analyzer/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/Yaswanth1320/ai-resume-analyzer/discussions)
+- **Email**: [Your Email]
+
+---
+
+## ⭐ **Star the Repository**
+
+If this project helps you in your job search journey, please consider giving it a star! It motivates us to keep improving and adding new features.
+
+---
 
 ## PDF to Image Conversion
 
