@@ -59,54 +59,61 @@ const resume = () => {
   }, [id]);
 
   return (
-    <main className="!pt-0">
-      <nav className="resume-nav">
-        <Link to="/" className="back-button">
-          <img src="/icons/back.svg" alt="logo" className="w-2.5 h-2.5" />
-          <span className="text-gray-800 text-sm font-semibold">
+    <main className="!pt-0 bg-gray-50 min-h-screen">
+      <nav className="resume-nav bg-white border-b border-gray-100 shadow-sm">
+        <Link to="/" className="back-button hover:bg-gray-50 transition-colors">
+          <img src="/icons/back.svg" alt="Back" className="w-4 h-4" />
+          <span className="text-gray-700 text-sm font-medium">
             Back to HomePage
           </span>
         </Link>
       </nav>
+
       <div className="flex flex-row w-full max-lg:flex-col-reverse">
-        <section className="feedback-section bg-[url('/images/bg-small.svg')] bg-cover h-[95vh] sticky top-0 items-center justify-center">
+        <section className="feedback-section bg-white shadow-sm border-r border-gray-100 h-[95vh] sticky top-0 flex items-center justify-center p-6">
           {imageUrl && resumeUrl && (
-            <div className="animate-in fade-in duration-500 gradient-border max-sm:m-0 h-[90%] max-2xl:h-fit w-fit">
+            <div className="animate-in fade-in duration-500 gradient-border max-sm:m-0 h-[90%] max-2xl:h-fit w-fit hover:shadow-lg transition-shadow">
               <a
                 href={resumeUrl}
                 target="_blank"
                 rel="noreferrer noopener"
-                className="w-full h-full flex items-center justify-center"
+                className="w-full h-full flex items-center justify-center group"
               >
                 <img
                   src={imageUrl}
                   alt="resume"
-                  title="Resume"
-                  className="w-full h-full object-contain rounded-2xl"
+                  title="Click to view PDF"
+                  className="w-full h-full object-contain rounded-xl group-hover:scale-105 transition-transform duration-200"
                 />
               </a>
             </div>
           )}
         </section>
 
-        <section className="feedback-section">
-          <h2 className="text-4xl !text-black font-bold">Resume Review</h2>
-          {feedback ? (
-            <div className="flex flex-col gap-8 animate-in fade-in duration-1000">
-              <Summary feedback={feedback} />
-              <ATS
-                score={feedback.ATS.score || 0}
-                suggestions={feedback.ATS.tips || []}
-              />
-              <Details feedback={feedback} />
-            </div>
-          ) : (
-            <img
-              src="/images/resume-scan-2.gif"
-              alt="scan"
-              className="w-full"
-            />
-          )}
+        <section className="feedback-section bg-white">
+          <div className="px-8 py-2">
+            {feedback ? (
+              <div className="flex flex-col gap-6 animate-in fade-in duration-1000">
+                <Summary feedback={feedback} />
+                <ATS
+                  score={feedback.ATS.score || 0}
+                  suggestions={feedback.ATS.tips || []}
+                />
+                <Details feedback={feedback} />
+              </div>
+            ) : (
+              <div className="flex flex-col items-center justify-center py-12">
+                <img
+                  src="/images/resume-scan-2.gif"
+                  alt="Analyzing resume"
+                  className="w-64 h-64 object-contain"
+                />
+                <p className="text-gray-500 text-sm mt-4">
+                  Analyzing your resume...
+                </p>
+              </div>
+            )}
+          </div>
         </section>
       </div>
     </main>

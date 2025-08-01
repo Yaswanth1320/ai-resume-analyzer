@@ -55,7 +55,7 @@ export const Accordion: React.FC<AccordionProps> = ({
     <AccordionContext.Provider
       value={{ activeItems, toggleItem, isItemActive }}
     >
-      <div className={`space-y-2 ${className}`}>{children}</div>
+      <div className={`space-y-1 ${className}`}>{children}</div>
     </AccordionContext.Provider>
   );
 };
@@ -72,7 +72,9 @@ export const AccordionItem: React.FC<AccordionItemProps> = ({
   className = "",
 }) => {
   return (
-    <div className={`overflow-hidden border-b border-gray-200 ${className}`}>
+    <div
+      className={`overflow-hidden border border-gray-200 rounded-lg bg-white ${className}`}
+    >
       {children}
     </div>
   );
@@ -98,11 +100,11 @@ export const AccordionHeader: React.FC<AccordionHeaderProps> = ({
 
   const defaultIcon = (
     <svg
-      className={cn("w-5 h-5 transition-transform duration-200", {
+      className={cn("w-4 h-4 transition-transform duration-200 text-gray-500", {
         "rotate-180": isActive,
       })}
       fill="none"
-      stroke="#98A2B3"
+      stroke="currentColor"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -122,12 +124,11 @@ export const AccordionHeader: React.FC<AccordionHeaderProps> = ({
   return (
     <button
       onClick={handleClick}
-      className={`
-        w-full px-4 py-3 text-left
-        focus:outline-none
-        transition-colors duration-200 flex items-center justify-between cursor-pointer
-        ${className}
-      `}
+      className={cn(
+        "w-full px-4 py-3 text-left focus:outline-none transition-colors duration-200 flex items-center justify-between cursor-pointer hover:bg-gray-50",
+        isActive && "bg-gray-50",
+        className
+      )}
     >
       <div className="flex items-center space-x-3">
         {iconPosition === "left" && (icon || defaultIcon)}
@@ -154,13 +155,13 @@ export const AccordionContent: React.FC<AccordionContentProps> = ({
 
   return (
     <div
-      className={`
-        overflow-hidden transition-all duration-300 ease-in-out
-        ${isActive ? "max-h-fit opacity-100" : "max-h-0 opacity-0"}
-        ${className}
-      `}
+      className={cn(
+        "overflow-hidden transition-all duration-300 ease-in-out",
+        isActive ? "max-h-fit opacity-100" : "max-h-0 opacity-0",
+        className
+      )}
     >
-      <div className="px-4 py-3 ">{children}</div>
+      <div className="px-4 py-3 bg-gray-50">{children}</div>
     </div>
   );
 };
