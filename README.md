@@ -185,3 +185,90 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [React Router](https://reactrouter.com/) for routing
 - [Tailwind CSS](https://tailwindcss.com/) for styling
 - [PDF.js](https://mozilla.github.io/pdf.js/) for PDF processing
+
+## PDF to Image Conversion
+
+The application includes a robust PDF to image conversion system using the official Mozilla PDF.js library.
+
+### Functions
+
+#### `convertPdfToImage(file, options)`
+
+Converts a PDF file to a PNG image.
+
+**Parameters:**
+- `file` (File): The PDF file to convert
+- `options` (object, optional):
+  - `scale` (number): Rendering scale factor (default: 2.0)
+  - `pageNumber` (number): Page to convert (default: 1)
+  - `quality` (number): Image quality 0-1 (default: 1.0)
+
+**Returns:**
+```typescript
+Promise<PdfConversionResult>
+```
+
+**Example:**
+```typescript
+import { convertPdfToImage } from '~/lib/pdf2image';
+
+const result = await convertPdfToImage(file, {
+  scale: 2.0,
+  pageNumber: 1,
+  quality: 1.0
+});
+
+if (result.file) {
+  // Use the converted image
+  console.log(result.imageUrl);
+}
+```
+
+#### `convertPdfToMultipleImages(file, options)`
+
+Converts multiple pages of a PDF to images.
+
+**Parameters:**
+- `file` (File): The PDF file to convert
+- `options` (object, optional):
+  - `scale` (number): Rendering scale factor (default: 2.0)
+  - `quality` (number): Image quality 0-1 (default: 1.0)
+  - `startPage` (number): First page to convert (default: 1)
+  - `endPage` (number): Last page to convert (default: all pages)
+
+**Returns:**
+```typescript
+Promise<PdfConversionResult[]>
+```
+
+### Technical Details
+
+- **Library**: Uses Mozilla PDF.js v5.4.54
+- **Worker**: Configured to use `/pdf.worker.min.mjs` (must match library version)
+- **Format**: Outputs high-quality PNG images
+- **Memory Management**: Proper cleanup of PDF documents and resources
+- **Error Handling**: Comprehensive error handling with detailed messages
+- **TypeScript**: Fully typed with proper interfaces
+
+### Version Compatibility
+
+**Important**: The worker file (`/pdf.worker.min.mjs`) must match the PDF.js library version. If you encounter version mismatch errors, update the worker file:
+
+```bash
+cp node_modules/pdfjs-dist/build/pdf.worker.min.mjs public/pdf.worker.min.mjs
+```
+
+### Performance Features
+
+- **Lazy Loading**: PDF.js library is loaded only when needed
+- **Memory Efficient**: Uses TypedArrays for better memory management
+- **High Quality**: Configurable rendering scale and quality
+- **Background Rendering**: White background for better visibility
+
+### Error Handling
+
+The functions provide detailed error messages for common issues:
+- Invalid page numbers
+- Failed canvas context creation
+- PDF loading errors
+- Rendering failures

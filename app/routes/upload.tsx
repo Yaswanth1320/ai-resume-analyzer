@@ -1,5 +1,6 @@
 import { prepareInstructions } from "../../constants/index";
 import React, { useState } from "react";
+import { useNavigate } from "react-router";
 import FileUploader from "~/components/FileUploader";
 import Navbar from "~/components/Navbar";
 import { convertPdfToImage } from "~/lib/pdf2image";
@@ -14,6 +15,7 @@ export const meta = () => [
 ];
 
 const upload = () => {
+  const navigate = useNavigate();
   const { fs, kv, ai, auth, isLoading } = usePuterStore();
   const [isProcessing, setIsProcessing] = useState(false);
   const [statusText, setStatusText] = useState("");
@@ -38,36 +40,30 @@ const upload = () => {
     setStatusText("uploading resume...");
     const uploadedFile = await fs.upload([file]);
     if (!uploadedFile) {
-      setStatusText("failed to upload resume");
-      setIsProcessing(false);
-      return;
+      return setStatusText("failed to upload resume");
     }
 
     setStatusText("converting resume to image...");
     const imageFile = await convertPdfToImage(file);
     if (!imageFile.file) {
-      setStatusText("failed to convert resume to image");
-      setIsProcessing(false);
-      return;
+      return setStatusText("failed to convert resume to image");
     }
 
     setStatusText("uploading resume image...");
     const uploadedImage = await fs.upload([imageFile.file]);
     if (!uploadedImage) {
-      setStatusText("failed to upload resume image");
-      setIsProcessing(false);
-      return;
+      return setStatusText("failed to upload resume image");
     }
 
     setStatusText("analyzing resume...");
     const uuid = generateUUID();
     const data = {
       id: uuid,
+      resumePath: uploadedFile.path,
+      imagePath: uploadedImage.path,
       companyName,
       jobTitle,
       jobDescription,
-      resumePath: uploadedFile.path,
-      imagePath: uploadedImage.path,
       feedback: "",
     };
 
@@ -80,23 +76,19 @@ const upload = () => {
     );
 
     if (!feedback) {
-      setStatusText("failed to analyze resume");
-      setIsProcessing(false);
-      return;
+      return setStatusText("failed to analyze resume");
     }
 
     const feedbackText =
       typeof feedback.message.content === "string"
         ? feedback.message.content
-        : feedback.message.content[0];
+        : feedback.message.content[0].text;
 
     data.feedback = JSON.parse(feedbackText);
 
     await kv.set(`resume:${uuid}`, JSON.stringify(data));
-    setIsProcessing(false);
     setStatusText("Resume analyzed successfully");
-    console.log(data);
-    // navigate(`/upload/${uuid}`);
+    navigate(`/resume/${uuid}`);
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
